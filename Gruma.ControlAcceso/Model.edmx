@@ -1,0 +1,1028 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="admin_grumaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="250" />
+          <Property Name="clave" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Curso_Categoria">
+          <Key>
+            <PropertyRef Name="curso_id" />
+            <PropertyRef Name="categoria_id" />
+          </Key>
+          <Property Name="curso_id" Type="int" Nullable="false" />
+          <Property Name="categoria_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CursosExternos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="participante_id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="fechaVencimiento" Type="date" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="500" />
+          <Property Name="DC3" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="250" />
+          <Property Name="empresaMasterId" Type="int" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="salt" Type="nvarchar" MaxLength="250" />
+          <Property Name="RFC" Type="nvarchar" MaxLength="20" />
+          <Property Name="nombreFactura" Type="nvarchar" MaxLength="250" />
+          <Property Name="direccionFactura" Type="nvarchar" MaxLength="500" />
+          <Property Name="numeroProveedor" Type="int" />
+          <Property Name="nombreResponsable" Type="nvarchar" MaxLength="150" />
+          <Property Name="apPatResponsable" Type="nvarchar" MaxLength="150" />
+          <Property Name="apMatResponsable" Type="nvarchar" MaxLength="150" />
+          <Property Name="puestoResponsable" Type="nvarchar" MaxLength="100" />
+          <Property Name="telOficinaResponsable" Type="nvarchar" MaxLength="50" />
+          <Property Name="telCelularResponsable" Type="nvarchar" MaxLength="50" />
+          <Property Name="correoResponsable" Type="nvarchar" MaxLength="100" />
+          <Property Name="correoResponsable2" Type="nvarchar" MaxLength="100" />
+          <Property Name="telefonoFactura" Type="nvarchar" MaxLength="50" />
+          <Property Name="correoFactura" Type="nvarchar" MaxLength="50" />
+          <Property Name="activa" Type="bit" Nullable="false" />
+          <Property Name="usuarioCanvas" Type="nvarchar" MaxLength="50" />
+          <Property Name="contrasenaCanvas" Type="nvarchar" MaxLength="50" />
+          <Property Name="observaciones" Type="nvarchar(max)" />
+          <Property Name="Domicilio" Type="nvarchar" MaxLength="500" />
+          <Property Name="RazonSocial" Type="nchar" MaxLength="500" />
+          <Property Name="docSAT" Type="nvarchar(max)" />
+          <Property Name="docCedula" Type="nvarchar(max)" />
+          <Property Name="docPagoIMSS" Type="nvarchar(max)" />
+          <Property Name="vigenciaPagoIMSS" Type="date" />
+          <Property Name="docIdentificacion" Type="nvarchar(max)" />
+          <Property Name="EmpresaMaestra" Type="int" />
+          <Property Name="RepresentanteLegal" Type="int" />
+          <Property Name="Calle" Type="nvarchar" MaxLength="500" />
+          <Property Name="NoExt" Type="nvarchar" MaxLength="10" />
+          <Property Name="NoInt" Type="nvarchar" MaxLength="10" />
+          <Property Name="Colonia" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pais" Type="nvarchar" MaxLength="50" />
+          <Property Name="codigoPostal" Type="nvarchar" MaxLength="10" />
+          <Property Name="CalleFac" Type="nvarchar" MaxLength="500" />
+          <Property Name="NoExtFac" Type="nvarchar" MaxLength="10" />
+          <Property Name="NoIntFac" Type="nvarchar" MaxLength="10" />
+          <Property Name="ColoniaFac" Type="nvarchar" MaxLength="50" />
+          <Property Name="CiudadFac" Type="nvarchar" MaxLength="50" />
+          <Property Name="EstadoFac" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaisFac" Type="nvarchar" MaxLength="50" />
+          <Property Name="codigoPostalFac" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EmpresaDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEmpresa" Type="int" />
+          <Property Name="IdDocumento" Type="int" />
+          <Property Name="NombreDocumento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="500" />
+          <Property Name="FechaVencimiento" Type="date" />
+          <Property Name="Activo" Type="int" />
+        </EntityType>
+        <EntityType Name="estatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Participante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="empresa_id" Type="int" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="150" />
+          <Property Name="apellidoPaterno" Type="nvarchar" MaxLength="150" />
+          <Property Name="apellidoMaterno" Type="nvarchar" MaxLength="150" />
+          <Property Name="correoElectronico" Type="nvarchar" MaxLength="150" />
+          <Property Name="telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="certificaciones" Type="nvarchar" MaxLength="500" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="500" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="foto" Type="nvarchar" MaxLength="500" />
+          <Property Name="RFC" Type="nvarchar" MaxLength="50" />
+          <Property Name="CURP" Type="nvarchar" MaxLength="50" />
+          <Property Name="IMSS" Type="nvarchar" MaxLength="50" />
+          <Property Name="cartaNoAntecedentes" Type="nvarchar" MaxLength="500" />
+          <Property Name="registroIMSS" Type="nvarchar" MaxLength="500" />
+          <Property Name="usuarioCanvas" Type="nvarchar" MaxLength="50" />
+          <Property Name="passwordCanvas" Type="nvarchar" MaxLength="20" />
+          <Property Name="matricula" Type="nvarchar" MaxLength="20" />
+          <Property Name="credencial" Type="bit" />
+          <Property Name="motivo_veto" Type="nvarchar(max)" />
+          <Property Name="pago_sua" Type="nvarchar(max)" />
+          <Property Name="pago_sua_archivo" Type="nvarchar(max)" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="contactoOpcional" Type="nvarchar" MaxLength="200" />
+          <Property Name="contactoTelefono" Type="nvarchar" MaxLength="40" />
+          <Property Name="estatus" Type="varchar" MaxLength="50" />
+          <Property Name="CurpFile" Type="nvarchar" MaxLength="500" />
+          <Property Name="Departamento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Grupo" Type="nvarchar" MaxLength="50" />
+          <Property Name="puesto" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Participante_Certif">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="participante_id" Type="int" Nullable="false" />
+          <Property Name="fechaExamen" Type="datetime" />
+          <Property Name="salaExamen" Type="nvarchar" MaxLength="100" />
+          <Property Name="certificacionObtenida" Type="nvarchar" MaxLength="150" />
+          <Property Name="calificacion" Type="int" />
+          <Property Name="fechaValidez" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Participante_Curso">
+          <Key>
+            <PropertyRef Name="participante_id" />
+            <PropertyRef Name="curso_id" />
+          </Key>
+          <Property Name="participante_id" Type="int" Nullable="false" />
+          <Property Name="curso_id" Type="int" Nullable="false" />
+          <Property Name="estatus_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParticipanteDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdParticipante" Type="int" />
+          <Property Name="IdDocumento" Type="int" />
+          <Property Name="NombreDocumento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Documento" Type="nvarchar" MaxLength="500" />
+          <Property Name="FechaVencimiento" Type="date" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreDocumento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="int" />
+          <Property Name="Obligatorio" Type="bit" />
+        </EntityType>
+        <EntityType Name="DocumentosEmpresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreDocumento" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="int" />
+          <Property Name="Obligatorio" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Curso_Categoria_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Curso_Categoria" Type="Self.Curso_Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Curso_Categoria">
+              <PropertyRef Name="categoria_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Curso_Categoria_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Curso_Categoria" Type="Self.Curso_Categoria" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Curso_Categoria">
+              <PropertyRef Name="curso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursosExternos_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="CursosExternos" Type="Self.CursosExternos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CursosExternos">
+              <PropertyRef Name="participante_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaDocumentos_DocumentosEmpresa">
+          <End Role="DocumentosEmpresa" Type="Self.DocumentosEmpresa" Multiplicity="0..1" />
+          <End Role="EmpresaDocumentos" Type="Self.EmpresaDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentosEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpresaDocumentos">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaDocumentos_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="EmpresaDocumentos" Type="Self.EmpresaDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmpresaDocumentos">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Certif_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="Participante_Certif" Type="Self.Participante_Certif" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Certif">
+              <PropertyRef Name="participante_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Curso_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Participante_Curso" Type="Self.Participante_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Curso">
+              <PropertyRef Name="curso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Curso_estatus">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+          <End Role="Participante_Curso" Type="Self.Participante_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Curso">
+              <PropertyRef Name="estatus_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Curso_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="Participante_Curso" Type="Self.Participante_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Curso">
+              <PropertyRef Name="participante_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Participante" Type="Self.Participante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante">
+              <PropertyRef Name="empresa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipanteDocumentos_Documentos">
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="0..1" />
+          <End Role="ParticipanteDocumentos" Type="Self.ParticipanteDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParticipanteDocumentos">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipanteDocumentos_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="0..1" />
+          <End Role="ParticipanteDocumentos" Type="Self.ParticipanteDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ParticipanteDocumentos">
+              <PropertyRef Name="IdParticipante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="admin_grumaModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Curso_Categoria" EntityType="Self.Curso_Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CursosExternos" EntityType="Self.CursosExternos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmpresaDocumentos" EntityType="Self.EmpresaDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estatus" EntityType="Self.estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participante" EntityType="Self.Participante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participante_Certif" EntityType="Self.Participante_Certif" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participante_Curso" EntityType="Self.Participante_Curso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParticipanteDocumentos" EntityType="Self.ParticipanteDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="Lista" store:Type="Tables" />
+          <EntitySet Name="DocumentosEmpresa" EntityType="Self.DocumentosEmpresa" Schema="Lista" store:Type="Tables" />
+          <AssociationSet Name="FK_Curso_Categoria_Categoria" Association="Self.FK_Curso_Categoria_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Curso_Categoria" EntitySet="Curso_Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Curso_Categoria_Curso" Association="Self.FK_Curso_Categoria_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Curso_Categoria" EntitySet="Curso_Categoria" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursosExternos_Participante" Association="Self.FK_CursosExternos_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="CursosExternos" EntitySet="CursosExternos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaDocumentos_DocumentosEmpresa" Association="Self.FK_EmpresaDocumentos_DocumentosEmpresa">
+            <End Role="DocumentosEmpresa" EntitySet="DocumentosEmpresa" />
+            <End Role="EmpresaDocumentos" EntitySet="EmpresaDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaDocumentos_Empresa" Association="Self.FK_EmpresaDocumentos_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="EmpresaDocumentos" EntitySet="EmpresaDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Certif_Participante" Association="Self.FK_Participante_Certif_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="Participante_Certif" EntitySet="Participante_Certif" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Curso_Curso" Association="Self.FK_Participante_Curso_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Participante_Curso" EntitySet="Participante_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Curso_estatus" Association="Self.FK_Participante_Curso_estatus">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="Participante_Curso" EntitySet="Participante_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Curso_Participante" Association="Self.FK_Participante_Curso_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="Participante_Curso" EntitySet="Participante_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Empresa" Association="Self.FK_Participante_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Participante" EntitySet="Participante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipanteDocumentos_Documentos" Association="Self.FK_ParticipanteDocumentos_Documentos">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="ParticipanteDocumentos" EntitySet="ParticipanteDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipanteDocumentos_Participante" Association="Self.FK_ParticipanteDocumentos_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="ParticipanteDocumentos" EntitySet="ParticipanteDocumentos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="admin_grumaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.Curso_Categoria" FromRole="Categoria" ToRole="Curso" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Participante_Curso" Relationship="Self.FK_Participante_Curso_Curso" FromRole="Curso" ToRole="Participante_Curso" />
+          <NavigationProperty Name="Categoria" Relationship="Self.Curso_Categoria" FromRole="Curso" ToRole="Categoria" />
+        </EntityType>
+        <EntityType Name="CursosExternos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="participante_id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_CursosExternos_Participante" FromRole="CursosExternos" ToRole="Participante" />
+          <Property Name="fecha" Type="DateTime" Precision="0" />
+          <Property Name="fechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DC3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="usuarioCanvas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="salt" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RFC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="nombreFactura" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="direccionFactura" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="numeroProveedor" Type="Int32" />
+          <Property Name="nombreResponsable" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="apPatResponsable" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="apMatResponsable" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="puestoResponsable" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="telOficinaResponsable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telCelularResponsable" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="correoResponsable" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="correoResponsable2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="telefonoFactura" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="correoFactura" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="activa" Type="Boolean" Nullable="false" />
+          <Property Name="contrasenaCanvas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_Participante_Empresa" FromRole="Empresa" ToRole="Participante" />
+          <Property Name="Domicilio" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RazonSocial" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="docSAT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="docCedula" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="docPagoIMSS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="vigenciaPagoIMSS" Type="DateTime" Precision="0" />
+          <Property Name="docIdentificacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmpresaMaestra" Type="Int32" />
+          <Property Name="RepresentanteLegal" Type="Int32" />
+          <Property Name="Calle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NoExt" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NoInt" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CalleFac" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="NoExtFac" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NoIntFac" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ColoniaFac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CiudadFac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EstadoFac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaisFac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="codigoPostalFac" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="empresaMasterId" Type="Int32" />
+          <NavigationProperty Name="EmpresaDocumentos" Relationship="admin_grumaModel.FK_EmpresaDocumentos_Empresa" FromRole="Empresa" ToRole="EmpresaDocumentos" />
+        </EntityType>
+        <EntityType Name="estatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Participante_Curso" Relationship="Self.FK_Participante_Curso_estatus" FromRole="estatus" ToRole="Participante_Curso" />
+        </EntityType>
+        <EntityType Name="Participante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="empresa_id" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoPaterno" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="apellidoMaterno" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="correoElectronico" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="certificaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="foto" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="RFC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CURP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IMSS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cartaNoAntecedentes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="registroIMSS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="usuarioCanvas" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="passwordCanvas" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="matricula" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="credencial" Type="Boolean" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="pago_sua" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="pago_sua_archivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="contactoOpcional" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="contactoTelefono" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CurpFile" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Grupo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ParticipanteDocumentos" Relationship="admin_grumaModel.FK_ParticipanteDocumentos_Participante" FromRole="Participante" ToRole="ParticipanteDocumentos" />
+          <Property Name="puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Participante_Certif">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="participante_id" Type="Int32" Nullable="false" />
+          <Property Name="fechaExamen" Type="DateTime" Precision="3" />
+          <Property Name="salaExamen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="certificacionObtenida" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="calificacion" Type="Int32" />
+          <Property Name="fechaValidez" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_Participante_Certif_Participante" FromRole="Participante_Certif" ToRole="Participante" />
+        </EntityType>
+        <EntityType Name="Participante_Curso">
+          <Key>
+            <PropertyRef Name="participante_id" />
+            <PropertyRef Name="curso_id" />
+          </Key>
+          <Property Name="participante_id" Type="Int32" Nullable="false" />
+          <Property Name="curso_id" Type="Int32" Nullable="false" />
+          <Property Name="estatus_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Curso" Relationship="Self.FK_Participante_Curso_Curso" FromRole="Participante_Curso" ToRole="Curso" />
+          <NavigationProperty Name="estatus" Relationship="Self.FK_Participante_Curso_estatus" FromRole="Participante_Curso" ToRole="estatus" />
+          <NavigationProperty Name="Participante" Relationship="Self.FK_Participante_Curso_Participante" FromRole="Participante_Curso" ToRole="Participante" />
+        </EntityType>
+        <Association Name="FK_Participante_Curso_Curso">
+          <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Participante_Curso" Type="Self.Participante_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Curso">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Curso">
+              <PropertyRef Name="curso_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CursosExternos_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="CursosExternos" Type="Self.CursosExternos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="CursosExternos">
+              <PropertyRef Name="participante_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Empresa">
+          <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+          <End Role="Participante" Type="Self.Participante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante">
+              <PropertyRef Name="empresa_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Curso_estatus">
+          <End Role="estatus" Type="Self.estatus" Multiplicity="1" />
+          <End Role="Participante_Curso" Type="Self.Participante_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Curso">
+              <PropertyRef Name="estatus_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Certif_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="Participante_Certif" Type="Self.Participante_Certif" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Certif">
+              <PropertyRef Name="participante_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participante_Curso_Participante">
+          <End Role="Participante" Type="Self.Participante" Multiplicity="1" />
+          <End Role="Participante_Curso" Type="Self.Participante_Curso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Participante_Curso">
+              <PropertyRef Name="participante_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Curso_Categoria">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+          <End Role="Curso" Type="Self.Curso" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="admin_grumaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="Curso" EntityType="Self.Curso" />
+          <EntitySet Name="CursosExternos" EntityType="Self.CursosExternos" />
+          <EntitySet Name="Empresa" EntityType="Self.Empresa" />
+          <EntitySet Name="estatus" EntityType="Self.estatus" />
+          <EntitySet Name="Participante" EntityType="Self.Participante" />
+          <EntitySet Name="Participante_Certif" EntityType="Self.Participante_Certif" />
+          <EntitySet Name="Participante_Curso" EntityType="Self.Participante_Curso" />
+          <AssociationSet Name="FK_Participante_Curso_Curso" Association="Self.FK_Participante_Curso_Curso">
+            <End Role="Curso" EntitySet="Curso" />
+            <End Role="Participante_Curso" EntitySet="Participante_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CursosExternos_Participante" Association="Self.FK_CursosExternos_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="CursosExternos" EntitySet="CursosExternos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Empresa" Association="Self.FK_Participante_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="Participante" EntitySet="Participante" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Curso_estatus" Association="Self.FK_Participante_Curso_estatus">
+            <End Role="estatus" EntitySet="estatus" />
+            <End Role="Participante_Curso" EntitySet="Participante_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Certif_Participante" Association="Self.FK_Participante_Certif_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="Participante_Certif" EntitySet="Participante_Certif" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participante_Curso_Participante" Association="Self.FK_Participante_Curso_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="Participante_Curso" EntitySet="Participante_Curso" />
+          </AssociationSet>
+          <AssociationSet Name="Curso_Categoria" Association="Self.Curso_Categoria">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Curso" EntitySet="Curso" />
+          </AssociationSet>
+          <EntitySet Name="ParticipanteDocumentos" EntityType="admin_grumaModel.ParticipanteDocumentos" />
+          <AssociationSet Name="FK_ParticipanteDocumentos_Participante" Association="admin_grumaModel.FK_ParticipanteDocumentos_Participante">
+            <End Role="Participante" EntitySet="Participante" />
+            <End Role="ParticipanteDocumentos" EntitySet="ParticipanteDocumentos" />
+          </AssociationSet>
+          <EntitySet Name="EmpresaDocumentos" EntityType="admin_grumaModel.EmpresaDocumentos" />
+          <EntitySet Name="Documentos" EntityType="admin_grumaModel.Documentos" />
+          <EntitySet Name="DocumentosEmpresa" EntityType="admin_grumaModel.DocumentosEmpresa" />
+          <AssociationSet Name="FK_EmpresaDocumentos_Empresa" Association="admin_grumaModel.FK_EmpresaDocumentos_Empresa">
+            <End Role="Empresa" EntitySet="Empresa" />
+            <End Role="EmpresaDocumentos" EntitySet="EmpresaDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmpresaDocumentos_DocumentosEmpresa" Association="admin_grumaModel.FK_EmpresaDocumentos_DocumentosEmpresa">
+            <End Role="DocumentosEmpresa" EntitySet="DocumentosEmpresa" />
+            <End Role="EmpresaDocumentos" EntitySet="EmpresaDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ParticipanteDocumentos_Documentos" Association="admin_grumaModel.FK_ParticipanteDocumentos_Documentos">
+            <End Role="Documentos" EntitySet="Documentos" />
+            <End Role="ParticipanteDocumentos" EntitySet="ParticipanteDocumentos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ParticipanteDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdParticipante" Type="Int32" />
+          <Property Name="IdDocumento" Type="Int32" />
+          <Property Name="NombreDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Participante" Relationship="admin_grumaModel.FK_ParticipanteDocumentos_Participante" FromRole="ParticipanteDocumentos" ToRole="Participante" />
+          <NavigationProperty Name="Documentos" Relationship="admin_grumaModel.FK_ParticipanteDocumentos_Documentos" FromRole="ParticipanteDocumentos" ToRole="Documentos" />
+        </EntityType>
+        <Association Name="FK_ParticipanteDocumentos_Participante">
+          <End Type="admin_grumaModel.Participante" Role="Participante" Multiplicity="0..1" />
+          <End Type="admin_grumaModel.ParticipanteDocumentos" Role="ParticipanteDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participante">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ParticipanteDocumentos">
+              <PropertyRef Name="IdParticipante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EmpresaDocumentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpresa" Type="Int32" />
+          <Property Name="IdDocumento" Type="Int32" />
+          <Property Name="NombreDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FechaVencimiento" Type="DateTime" Precision="0" />
+          <Property Name="Activo" Type="Int32" />
+          <NavigationProperty Name="Empresa" Relationship="admin_grumaModel.FK_EmpresaDocumentos_Empresa" FromRole="EmpresaDocumentos" ToRole="Empresa" />
+          <NavigationProperty Name="DocumentosEmpresa" Relationship="admin_grumaModel.FK_EmpresaDocumentos_DocumentosEmpresa" FromRole="EmpresaDocumentos" ToRole="DocumentosEmpresa" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Int32" />
+          <Property Name="Obligatorio" Type="Boolean" />
+          <NavigationProperty Name="ParticipanteDocumentos" Relationship="admin_grumaModel.FK_ParticipanteDocumentos_Documentos" FromRole="Documentos" ToRole="ParticipanteDocumentos" />
+        </EntityType>
+        <EntityType Name="DocumentosEmpresa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Int32" />
+          <Property Name="Obligatorio" Type="Boolean" />
+          <NavigationProperty Name="EmpresaDocumentos" Relationship="admin_grumaModel.FK_EmpresaDocumentos_DocumentosEmpresa" FromRole="DocumentosEmpresa" ToRole="EmpresaDocumentos" />
+        </EntityType>
+        <Association Name="FK_EmpresaDocumentos_Empresa">
+          <End Type="admin_grumaModel.Empresa" Role="Empresa" Multiplicity="0..1" />
+          <End Type="admin_grumaModel.EmpresaDocumentos" Role="EmpresaDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empresa">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="EmpresaDocumentos">
+              <PropertyRef Name="IdEmpresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmpresaDocumentos_DocumentosEmpresa">
+          <End Type="admin_grumaModel.DocumentosEmpresa" Role="DocumentosEmpresa" Multiplicity="0..1" />
+          <End Type="admin_grumaModel.EmpresaDocumentos" Role="EmpresaDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DocumentosEmpresa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmpresaDocumentos">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ParticipanteDocumentos_Documentos">
+          <End Type="admin_grumaModel.Documentos" Role="Documentos" Multiplicity="0..1" />
+          <End Type="admin_grumaModel.ParticipanteDocumentos" Role="ParticipanteDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Documentos">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ParticipanteDocumentos">
+              <PropertyRef Name="IdDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="admin_grumaModelStoreContainer" CdmEntityContainer="admin_grumaEntities">
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="admin_grumaModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Curso">
+            <EntityTypeMapping TypeName="admin_grumaModel.Curso">
+              <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CursosExternos">
+            <EntityTypeMapping TypeName="admin_grumaModel.CursosExternos">
+              <MappingFragment StoreEntitySet="CursosExternos">
+                <ScalarProperty Name="DC3" ColumnName="DC3" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="participante_id" ColumnName="participante_id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empresa">
+            <EntityTypeMapping TypeName="admin_grumaModel.Empresa">
+              <MappingFragment StoreEntitySet="Empresa">
+                <ScalarProperty Name="empresaMasterId" ColumnName="empresaMasterId" />
+                <ScalarProperty Name="codigoPostalFac" ColumnName="codigoPostalFac" />
+                <ScalarProperty Name="PaisFac" ColumnName="PaisFac" />
+                <ScalarProperty Name="EstadoFac" ColumnName="EstadoFac" />
+                <ScalarProperty Name="CiudadFac" ColumnName="CiudadFac" />
+                <ScalarProperty Name="ColoniaFac" ColumnName="ColoniaFac" />
+                <ScalarProperty Name="NoIntFac" ColumnName="NoIntFac" />
+                <ScalarProperty Name="NoExtFac" ColumnName="NoExtFac" />
+                <ScalarProperty Name="CalleFac" ColumnName="CalleFac" />
+                <ScalarProperty Name="codigoPostal" ColumnName="codigoPostal" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+                <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="RepresentanteLegal" ColumnName="RepresentanteLegal" />
+                <ScalarProperty Name="EmpresaMaestra" ColumnName="EmpresaMaestra" />
+                <ScalarProperty Name="docIdentificacion" ColumnName="docIdentificacion" />
+                <ScalarProperty Name="vigenciaPagoIMSS" ColumnName="vigenciaPagoIMSS" />
+                <ScalarProperty Name="docPagoIMSS" ColumnName="docPagoIMSS" />
+                <ScalarProperty Name="docCedula" ColumnName="docCedula" />
+                <ScalarProperty Name="docSAT" ColumnName="docSAT" />
+                <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+                <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="usuarioCanvas" ColumnName="usuarioCanvas" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="nombreFactura" ColumnName="nombreFactura" />
+                <ScalarProperty Name="direccionFactura" ColumnName="direccionFactura" />
+                <ScalarProperty Name="numeroProveedor" ColumnName="numeroProveedor" />
+                <ScalarProperty Name="nombreResponsable" ColumnName="nombreResponsable" />
+                <ScalarProperty Name="apPatResponsable" ColumnName="apPatResponsable" />
+                <ScalarProperty Name="apMatResponsable" ColumnName="apMatResponsable" />
+                <ScalarProperty Name="puestoResponsable" ColumnName="puestoResponsable" />
+                <ScalarProperty Name="telOficinaResponsable" ColumnName="telOficinaResponsable" />
+                <ScalarProperty Name="telCelularResponsable" ColumnName="telCelularResponsable" />
+                <ScalarProperty Name="correoResponsable" ColumnName="correoResponsable" />
+                <ScalarProperty Name="correoResponsable2" ColumnName="correoResponsable2" />
+                <ScalarProperty Name="telefonoFactura" ColumnName="telefonoFactura" />
+                <ScalarProperty Name="correoFactura" ColumnName="correoFactura" />
+                <ScalarProperty Name="activa" ColumnName="activa" />
+                <ScalarProperty Name="contrasenaCanvas" ColumnName="contrasenaCanvas" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estatus">
+            <EntityTypeMapping TypeName="admin_grumaModel.estatus">
+              <MappingFragment StoreEntitySet="estatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participante">
+            <EntityTypeMapping TypeName="admin_grumaModel.Participante">
+              <MappingFragment StoreEntitySet="Participante">
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+                <ScalarProperty Name="Grupo" ColumnName="Grupo" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+                <ScalarProperty Name="CurpFile" ColumnName="CurpFile" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="contactoTelefono" ColumnName="contactoTelefono" />
+                <ScalarProperty Name="contactoOpcional" ColumnName="contactoOpcional" />
+                <ScalarProperty Name="pago_sua_archivo" ColumnName="pago_sua_archivo" />
+                <ScalarProperty Name="pago_sua" ColumnName="pago_sua" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="empresa_id" ColumnName="empresa_id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidoPaterno" ColumnName="apellidoPaterno" />
+                <ScalarProperty Name="apellidoMaterno" ColumnName="apellidoMaterno" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="certificaciones" ColumnName="certificaciones" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="RFC" ColumnName="RFC" />
+                <ScalarProperty Name="CURP" ColumnName="CURP" />
+                <ScalarProperty Name="IMSS" ColumnName="IMSS" />
+                <ScalarProperty Name="cartaNoAntecedentes" ColumnName="cartaNoAntecedentes" />
+                <ScalarProperty Name="registroIMSS" ColumnName="registroIMSS" />
+                <ScalarProperty Name="usuarioCanvas" ColumnName="usuarioCanvas" />
+                <ScalarProperty Name="passwordCanvas" ColumnName="passwordCanvas" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="credencial" ColumnName="credencial" />
+                </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participante_Certif">
+            <EntityTypeMapping TypeName="admin_grumaModel.Participante_Certif">
+              <MappingFragment StoreEntitySet="Participante_Certif">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="participante_id" ColumnName="participante_id" />
+                <ScalarProperty Name="fechaExamen" ColumnName="fechaExamen" />
+                <ScalarProperty Name="salaExamen" ColumnName="salaExamen" />
+                <ScalarProperty Name="certificacionObtenida" ColumnName="certificacionObtenida" />
+                <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+                <ScalarProperty Name="fechaValidez" ColumnName="fechaValidez" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participante_Curso">
+            <EntityTypeMapping TypeName="admin_grumaModel.Participante_Curso">
+              <MappingFragment StoreEntitySet="Participante_Curso">
+                <ScalarProperty Name="participante_id" ColumnName="participante_id" />
+                <ScalarProperty Name="curso_id" ColumnName="curso_id" />
+                <ScalarProperty Name="estatus_id" ColumnName="estatus_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Curso_Categoria" TypeName="admin_grumaModel.Curso_Categoria" StoreEntitySet="Curso_Categoria">
+            <EndProperty Name="Categoria">
+              <ScalarProperty Name="id" ColumnName="categoria_id" />
+            </EndProperty>
+            <EndProperty Name="Curso">
+              <ScalarProperty Name="id" ColumnName="curso_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="ParticipanteDocumentos">
+            <EntityTypeMapping TypeName="admin_grumaModel.ParticipanteDocumentos">
+              <MappingFragment StoreEntitySet="ParticipanteDocumentos">
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="NombreDocumento" ColumnName="NombreDocumento" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdParticipante" ColumnName="IdParticipante" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmpresaDocumentos">
+            <EntityTypeMapping TypeName="admin_grumaModel.EmpresaDocumentos">
+              <MappingFragment StoreEntitySet="EmpresaDocumentos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="Documento" ColumnName="Documento" />
+                <ScalarProperty Name="NombreDocumento" ColumnName="NombreDocumento" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="admin_grumaModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="Obligatorio" ColumnName="Obligatorio" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="NombreDocumento" ColumnName="NombreDocumento" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentosEmpresa">
+            <EntityTypeMapping TypeName="admin_grumaModel.DocumentosEmpresa">
+              <MappingFragment StoreEntitySet="DocumentosEmpresa">
+                <ScalarProperty Name="Obligatorio" ColumnName="Obligatorio" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="NombreDocumento" ColumnName="NombreDocumento" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,111 @@
+﻿<Window x:Class="Denso.ControlAcceso.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Denso.ControlAcceso"
+        mc:Ignorable="d"
+        Title="Control de Acceso" Padding="5,5,5,5" WindowState="Maximized" WindowStyle="None" Background="#EAEAEA">
+    
+    <Window.Resources>
+        <FontFamily x:Key="font1">/Assets/Fonts/Kanit/Kanit-Medium.ttf#Kanit Medium</FontFamily>
+        <FontFamily x:Key="font2">/Assets/Fonts/Kanit/Kanit-Light.ttf#Kanit Light</FontFamily>
+        <FontFamily x:Key="font3">/Assets/Fonts/Kanit/Kanit-Regular.ttf#Kanit Regular"</FontFamily>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width=".4*"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Background="#fff" >
+            <Label Content="CONTROL DE ACCESO A PROVEEDORES"  Foreground="#ec1a3b"  FontSize="30" Margin="30" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="/Assets/Fonts/Antonio/Antonio-Regular.ttf#Antonio"></Label>
+            <Image Source="/img/DensoLogo.png"  HorizontalAlignment="Right"   Margin="0,35,142,32" Width="150" RenderTransformOrigin="0.5,0.698" />
+            <Image Source="/img/mlk_logo_black.png"  HorizontalAlignment="Right"   Margin="0,5,49,6" Width="74" ></Image>
+        </Grid>
+        <Grid Grid.Row="1"
+          Grid.Column="0" Grid.ColumnSpan="4" Height="10">
+        </Grid>
+        
+        <!-- DC3 Y CERTIFICADOS -->
+
+        <ListView Name="dc3List"  Grid.Row="2" Grid.Column="0" Grid.RowSpan="3"  Height="430" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,160" Width="170">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="center" VerticalAlignment="Center">
+                        <Image Grid.Column="0" Source="{Binding Path=pathFoto}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60" Margin="10,10,15,10" ></Image>
+                        <TextBlock Text="{Binding Path=Name}"  HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{Binding Path=Vencimiento, StringFormat=d}"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                        <TextBlock Text="{Binding Path=Estatus}"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ListView Name="certificacionesList"  Grid.Row="4" Grid.Column="0" Grid.RowSpan="2"  Height="150" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,50,0,50" Width="170">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                        <StackPanel Orientation="Vertical" >
+                        <Image Grid.Column="0" Source="{Binding Path=pathFoto}" HorizontalAlignment="center" VerticalAlignment="Center" Width="60" Margin="10,10,15,10" ></Image>
+                        <TextBlock Text="{Binding Path=Name}"  HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                        <TextBlock Text="{Binding Path=Vencimiento, StringFormat=d}"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                        <TextBlock Text="{Binding Path=Estatus}"  HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+                        </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <!-- DC3 Y CERTIFICADOS -->
+
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+            <Label Content="Datos de la Persona:" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top"
+               Margin="42,1,0,0" Foreground="#9A9D9D" FontFamily="{StaticResource font3}"></Label>
+        </Grid>
+
+        <Grid Grid.Row="3" MaxHeight="350" MaxWidth="280" Grid.Column="1" Margin="0,0,0,100">
+            <Image   x:Name="DatosFoto" Source="NO-USER.png" HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="280" ></Image>
+        </Grid>
+
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="2" Orientation="Vertical" Margin="30,130,0,50" x:Name="infoStackpanel" >
+            <Label x:Name="DatosNombre" Margin="0" Padding="0" Content="" FontSize="35" FontWeight="Bold" Foreground="#2B2622" FontFamily="{StaticResource font1}"></Label>
+            <Label x:Name="DatosApellido" Margin="0" Padding="0"  Content="" FontSize="35" FontWeight="Bold" Foreground="#2B2622" FontFamily="{StaticResource font1}"></Label>
+            <Label x:Name="DatosIdentificador" Margin="0" Padding="0"  Content="" FontSize="35" FontWeight="Bold" Foreground="#00427D" FontFamily="{StaticResource font2}"></Label>
+            <Label x:Name="Espacio" Content="" FontSize="30"></Label>
+            <Label x:Name="DatosTitulo"  Margin="0" Padding="0"  Content="" FontSize="20" FontWeight="Bold" Foreground="#2B2622" FontFamily="{StaticResource font2}"></Label>
+            <Label x:Name="DatosRazonSocial"  Margin="0" Padding="0"  Content="" FontSize="20" FontWeight="Bold" Foreground="#2B2622" FontFamily="{StaticResource font2}"></Label>
+            <Label x:Name="MensajeInicio" Content="Scaneé el usuario" FontSize="25" FontFamily="{StaticResource font1}" Margin="0,40"></Label>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Vertical" Margin="0,-30,0,0" >
+            <Canvas MinHeight="100" Width="250"  Margin="0,0,60,0" >
+                <Label x:Name="Resultado" Panel.ZIndex="1" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="80,110,50,0" />
+                <Ellipse x:Name="SignalPase" Fill="#fff200" HorizontalAlignment="Center" Stretch="Fill" Canvas.Top="10" MinHeight="250" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Canvas}}}"/>
+            </Canvas>
+        </StackPanel>
+
+        <Grid Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,220,60,0" Height="280">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel >
+                    <Label x:Name="PagoSUA" Foreground="Red" Content=""  FontSize="20" FontFamily="{StaticResource font3}" />
+                    <Label x:Name="ExamenMedico" Foreground="Red" Content="" FontSize="20" FontFamily="{StaticResource font3}" />
+                    <Label x:Name="CartaResponsiva" Foreground="Red" Content="" FontSize="20" FontFamily="{StaticResource font3}"  />
+                    <Label x:Name="ConstanciaAutoevaluacion" Foreground="Red" Content="" FontSize="20" FontFamily="{StaticResource font3}"  />
+                    <Label x:Name="ProgramaHidratacion" Foreground="Red" Content="" FontSize="20" FontFamily="{StaticResource font3}" />
+                    <Label x:Name="PlanAccion" Foreground="Red" Content="" FontSize="20" FontFamily="{StaticResource font3}" />
+                    <Label x:Name="CuestionarioSeguridad" Foreground="Red" Content="" FontSize="20" FontFamily="{StaticResource font3}" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>
+
