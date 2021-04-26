@@ -1,5 +1,5 @@
-﻿using Graftech.ControlAcceso;
-using Graftech.ControlAcceso.Models;
+﻿using Denso.ControlAcceso;
+using Denso.ControlAcceso.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

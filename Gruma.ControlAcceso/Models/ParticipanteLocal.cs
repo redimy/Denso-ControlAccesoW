@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Graftech.ControlAcceso.Models
+namespace Denso.ControlAcceso.Models
 {
     class ParticipanteLocal
     {

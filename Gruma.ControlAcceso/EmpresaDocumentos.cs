@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Graftech.ControlAcceso
+namespace Denso.ControlAcceso
 {
     using System;
     using System.Collections.Generic;

@@ -15,8 +15,8 @@ using System.Windows.Shapes;
 using System.Configuration;
 using System.Data.Entity.Core;
 using System.IO;
-using Graftech.ControlAcceso;
-using Graftech.ControlAcceso.Models;
+using Denso.ControlAcceso;
+using Denso.ControlAcceso.Models;
 
 namespace Denso.ControlAcceso
 {
@@ -26,8 +26,6 @@ namespace Denso.ControlAcceso
     public partial class MainWindow : Window
     {
         public string clave2;
-        public Object x;
-        public KeyEventArgs y;
 
         public MainWindow()
         {
@@ -39,7 +37,6 @@ namespace Denso.ControlAcceso
                 try
                 {
                     context.estatus.FirstOrDefault();
-                    MainWindow_KeyUp(x,y);
                 }
                 catch (EntityException ee) {
                     this.MensajeInicio.Content = "No conexión a internet";
@@ -145,7 +142,7 @@ namespace Denso.ControlAcceso
 
 
             // Barcode scanner hits Enter/Return after reading barcode
-            if (true)
+            if (e.Key == Key.Return && _barcode.Count > 0)
             {
                 string BarCodeData = new String(_barcode.ToArray());
 
@@ -171,7 +168,7 @@ namespace Denso.ControlAcceso
                         clave = clave2;
                     }
 
-                    iClave = Convert.ToInt32(4193);
+                    iClave = Convert.ToInt32(clave);
 
                 }
                 catch (Exception ex)
