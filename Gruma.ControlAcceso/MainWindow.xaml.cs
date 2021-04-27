@@ -282,92 +282,92 @@ namespace Denso.ControlAcceso
 
                     }
 
-                    if (verifica.persona.ConstanciaAutoevaluacion != null && !verifica.persona.ConstanciaAutoevaluacionVencido)
-                    {
-                        this.ConstanciaAutoevaluacion.Content = verifica.persona.ConstanciaAutoevaluacion;
-                        this.ConstanciaAutoevaluacion.Foreground = new SolidColorBrush(colorVerde);
-                    }
-                    else if (verifica.persona.ConstanciaAutoevaluacionVencido)
-                    {
-                        this.ConstanciaAutoevaluacion.Content = verifica.persona.ConstanciaAutoevaluacion;
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //if (verifica.persona.ConstanciaAutoevaluacion != null && !verifica.persona.ConstanciaAutoevaluacionVencido)
+                    //{
+                    //    this.ConstanciaAutoevaluacion.Content = verifica.persona.ConstanciaAutoevaluacion;
+                    //    this.ConstanciaAutoevaluacion.Foreground = new SolidColorBrush(colorVerde);
+                    //}
+                    //else if (verifica.persona.ConstanciaAutoevaluacionVencido)
+                    //{
+                    //    this.ConstanciaAutoevaluacion.Content = verifica.persona.ConstanciaAutoevaluacion;
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
-                    else
-                    {
-                        this.ConstanciaAutoevaluacion.Content = "Constancia Autoevaluación";
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //}
+                    //else
+                    //{
+                    //    this.ConstanciaAutoevaluacion.Content = "Constancia Autoevaluación";
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
+                    //}
 
-                    if (verifica.persona.ProgramaHidratacion != null && !verifica.persona.ProgramaHidratacionVencido)
-                    {
-                        this.ProgramaHidratacion.Content = verifica.persona.ProgramaHidratacion;
-                        this.ProgramaHidratacion.Foreground = new SolidColorBrush(colorVerde);
-                    }
-                    else if (verifica.persona.ProgramaHidratacionVencido)
-                    {
-                        this.ProgramaHidratacion.Content = verifica.persona.ProgramaHidratacion;
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //if (verifica.persona.ProgramaHidratacion != null && !verifica.persona.ProgramaHidratacionVencido)
+                    //{
+                    //    this.ProgramaHidratacion.Content = verifica.persona.ProgramaHidratacion;
+                    //    this.ProgramaHidratacion.Foreground = new SolidColorBrush(colorVerde);
+                    //}
+                    //else if (verifica.persona.ProgramaHidratacionVencido)
+                    //{
+                    //    this.ProgramaHidratacion.Content = verifica.persona.ProgramaHidratacion;
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
-                    else
-                    {
-                        this.ProgramaHidratacion.Content = "Programa de Hidratación";
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //}
+                    //else
+                    //{
+                    //    this.ProgramaHidratacion.Content = "Programa de Hidratación";
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
+                    //}
 
-                    if (verifica.persona.PlanAccion != null && !verifica.persona.PlanAccionVencido)
-                    {
-                        this.PlanAccion.Content = verifica.persona.PlanAccion;
-                        this.PlanAccion.Foreground = new SolidColorBrush(colorVerde);
-                    }
-                    else if (verifica.persona.PlanAccionVencido)
-                    {
-                        this.PlanAccion.Content = verifica.persona.PlanAccion;
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //if (verifica.persona.PlanAccion != null && !verifica.persona.PlanAccionVencido)
+                    //{
+                    //    this.PlanAccion.Content = verifica.persona.PlanAccion;
+                    //    this.PlanAccion.Foreground = new SolidColorBrush(colorVerde);
+                    //}
+                    //else if (verifica.persona.PlanAccionVencido)
+                    //{
+                    //    this.PlanAccion.Content = verifica.persona.PlanAccion;
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
-                    else
-                    {
-                        this.PlanAccion.Content = "Plan de Acción";
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //}
+                    //else
+                    //{
+                    //    this.PlanAccion.Content = "Plan de Acción";
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
+                    //}
 
-                    if (verifica.persona.CuestionarioSeguridad != null && !verifica.persona.CuestionarioSeguridadVencido)
-                    {
-                        this.CuestionarioSeguridad.Content = verifica.persona.CuestionarioSeguridad;
-                        this.CuestionarioSeguridad.Foreground = new SolidColorBrush(colorVerde);
-                    }
-                    else if (verifica.persona.CuestionarioSeguridadVencido)
-                    {
-                        this.CuestionarioSeguridad.Content = verifica.persona.CuestionarioSeguridad;
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
+                    //if (verifica.persona.CuestionarioSeguridad != null && !verifica.persona.CuestionarioSeguridadVencido)
+                    //{
+                    //    this.CuestionarioSeguridad.Content = verifica.persona.CuestionarioSeguridad;
+                    //    this.CuestionarioSeguridad.Foreground = new SolidColorBrush(colorVerde);
+                    //}
+                    //else if (verifica.persona.CuestionarioSeguridadVencido)
+                    //{
+                    //    this.CuestionarioSeguridad.Content = verifica.persona.CuestionarioSeguridad;
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
 
-                    }
-                    else
-                    {
-                        this.CuestionarioSeguridad.Content = "Cuestionario de Seguridad";
-                        sResolucion = "ALTO";
-                        colorPintado = colorRojo;
-                        verifica.autorizado = false;
-                    }
+                    //}
+                    //else
+                    //{
+                    //    this.CuestionarioSeguridad.Content = "Cuestionario de Seguridad";
+                    //    sResolucion = "ALTO";
+                    //    colorPintado = colorRojo;
+                    //    verifica.autorizado = false;
+                    //}
 
                     if (verifica.autorizado)
                     {
